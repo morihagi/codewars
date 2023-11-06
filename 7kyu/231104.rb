@@ -2,16 +2,21 @@
 def is_square(x)
   if x < 0
     return false
-    puts "#{x} is not a perfect square"
   else
     a1 = Math.sqrt(x)
     a2 = a1.floor
     if a1 == a2
       return true
-      puts "#{x} is a perfect square (#{x} * #{x})"
     else
       return false
-      puts "#{x} is not a perfect square"
     end
   end
+end
+
+# Math.sqrt(x)は小数点が表示される
+# Math.sqrt(4) -> 2.0
+# これを整数にしたいときどうするか
+# 1で割り、余りが0のときとすればよし
+def is_square(x)
+  x < 0 ? false : Math.sqrt(x) % 1 == 0
 end
